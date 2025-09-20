@@ -41,23 +41,22 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Smooth Scroll Animations with Better Performance
+// Universal Fade Animation Observer
 const animationObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const element = entry.target;
-        const animationType = element.getAttribute("data-animation");
 
         // Use requestAnimationFrame for smoother animations
         requestAnimationFrame(() => {
-          element.classList.add(animationType);
+          element.classList.add("fadeInUp");
           element.classList.add("animate");
 
           // Clean up will-change after animation completes
           setTimeout(() => {
             element.style.willChange = "auto";
-          }, 1600); // Max animation duration + buffer
+          }, 1200); // 1s animation + buffer
         });
 
         // Stop observing this element once animated
@@ -71,10 +70,14 @@ const animationObserver = new IntersectionObserver(
   }
 );
 
-// Observe all animated elements
+// Observe all cards and menu items
 document.addEventListener("DOMContentLoaded", () => {
-  const animatedElements = document.querySelectorAll(".animate-element");
+  const animatedElements = document.querySelectorAll(
+    ".deal-card, .menu-item, .midnight-deal, .masti-deal, .contact-item"
+  );
   animatedElements.forEach((el) => {
+    // Add animate-element class to all cards
+    el.classList.add("animate-element");
     animationObserver.observe(el);
   });
 });
@@ -107,23 +110,22 @@ function addStaggeredAnimations() {
 function addMenuStaggeredAnimations(categoryId) {
   const container = document.getElementById(categoryId);
   if (container) {
-    const menuItems = container.querySelectorAll(".animate-element");
+    const menuItems = container.querySelectorAll(".menu-item");
 
     menuItems.forEach((item, index) => {
       // Use requestAnimationFrame for better performance
       requestAnimationFrame(() => {
         setTimeout(() => {
-          const animationType = item.getAttribute("data-animation");
-          if (animationType && !item.classList.contains("animate")) {
-            item.classList.add(animationType);
+          if (!item.classList.contains("animate")) {
+            item.classList.add("fadeInUp");
             item.classList.add("animate");
 
             // Clean up will-change after animation
             setTimeout(() => {
               item.style.willChange = "auto";
-            }, 1600);
+            }, 1200);
           }
-        }, index * 80); // Faster, smoother stagger
+        }, index * 100); // Stagger timing
       });
     });
   }
