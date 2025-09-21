@@ -48,6 +48,12 @@ const animationObserver = new IntersectionObserver(
       if (entry.isIntersecting) {
         const element = entry.target;
 
+        // Check if element is inside a collapsed menu container
+        const parentContainer = element.closest(".menu-items-container");
+        if (parentContainer && !parentContainer.classList.contains("active")) {
+          return; // Don't animate if parent menu is collapsed
+        }
+
         // Use requestAnimationFrame for smoother animations
         requestAnimationFrame(() => {
           element.classList.add("fadeInUp");
@@ -65,8 +71,8 @@ const animationObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.15, // Trigger when 15% visible
-    rootMargin: "0px 0px -30px 0px", // Better timing
+    threshold: 0.3, // Higher threshold to prevent premature triggering
+    rootMargin: "0px 0px -50px 0px", // More conservative timing
   }
 );
 
@@ -322,12 +328,25 @@ document.addEventListener("DOMContentLoaded", () => {
       // Add smooth animation effect
       if (container.classList.contains("active")) {
         container.style.maxHeight = container.scrollHeight + "px";
-        // Trigger staggered animations for menu items when category opens
+        // Trigger animations for menu items when category opens
         setTimeout(() => {
-          addMenuStaggeredAnimations(categoryId);
-        }, 200);
+          const menuItems = container.querySelectorAll(".menu-item");
+          menuItems.forEach((item, index) => {
+            setTimeout(() => {
+              if (!item.classList.contains("animate")) {
+                item.classList.add("fadeInUp");
+                item.classList.add("animate");
+              }
+            }, index * 80); // Stagger timing
+          });
+        }, 300); // Wait for expand animation to start
       } else {
         container.style.maxHeight = "0";
+        // Reset animations when closing
+        const menuItems = container.querySelectorAll(".menu-item");
+        menuItems.forEach((item) => {
+          item.classList.remove("fadeInUp", "animate");
+        });
       }
     });
   });
