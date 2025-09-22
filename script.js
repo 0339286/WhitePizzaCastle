@@ -54,9 +54,15 @@ const animationObserver = new IntersectionObserver(
           return; // Don't animate if parent menu is collapsed
         }
 
+        // Determine animation class from data-animation or fallback
+        const animClass =
+          element.dataset && element.dataset.animation
+            ? element.dataset.animation
+            : "fadeInUp";
+
         // Use requestAnimationFrame for smoother animations
         requestAnimationFrame(() => {
-          element.classList.add("fadeInUp");
+          element.classList.add(animClass);
           element.classList.add("animate");
 
           // Clean up will-change after animation completes
@@ -78,6 +84,11 @@ const animationObserver = new IntersectionObserver(
 
 // Observe all cards and menu items
 document.addEventListener("DOMContentLoaded", () => {
+  // Set alternating animations for Special Deals
+  if (typeof setAlternatingDealAnimations === "function") {
+    setAlternatingDealAnimations();
+  }
+
   const animatedElements = document.querySelectorAll(
     ".deal-card, .menu-item, .midnight-deal, .masti-deal, .contact-item"
   );
@@ -362,3 +373,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.opacity = "1";
   }, 100);
 });
+
+function setAlternatingDealAnimations() {
+  const specialDeals = document.querySelectorAll(
+    "#deals .deals-grid .deal-card"
+  );
+  specialDeals.forEach((card, index) => {
+    const desired = index % 2 === 0 ? "fadeInLeft" : "fadeInRight";
+    card.dataset.animation = desired;
+  });
+}
