@@ -84,9 +84,15 @@ const animationObserver = new IntersectionObserver(
 
 // Observe all cards and menu items
 document.addEventListener("DOMContentLoaded", () => {
-  // Set alternating animations for Special Deals
+  // Set alternating animations for Special, Midnight and Masti Deals
   if (typeof setAlternatingDealAnimations === "function") {
     setAlternatingDealAnimations();
+  }
+  if (typeof setAlternatingMidnightAnimations === "function") {
+    setAlternatingMidnightAnimations();
+  }
+  if (typeof setAlternatingMastiAnimations === "function") {
+    setAlternatingMastiAnimations();
   }
 
   const animatedElements = document.querySelectorAll(
@@ -151,6 +157,11 @@ function addMenuStaggeredAnimations(categoryId) {
 // Add loading animation
 window.addEventListener("load", () => {
   document.body.classList.add("loaded");
+  const hero = document.querySelector(".hero");
+  if (hero) {
+    // delay slightly to allow background paint
+    setTimeout(() => hero.classList.add("hero-animate"), 100);
+  }
 });
 
 // Phone number click to call
@@ -383,3 +394,52 @@ function setAlternatingDealAnimations() {
     card.dataset.animation = desired;
   });
 }
+
+function setAlternatingMidnightAnimations() {
+  const midnightDeals = document.querySelectorAll(
+    "#midnight-deals .midnight-grid .midnight-deal"
+  );
+  const pattern = ["fadeInUp", "fadeInLeft", "fadeInRight"]; // mixed sequence
+  midnightDeals.forEach((card, index) => {
+    const desired = pattern[index % pattern.length];
+    card.dataset.animation = desired;
+  });
+}
+
+function setAlternatingMastiAnimations() {
+  const mastiDeals = document.querySelectorAll(
+    "#masti-deals .masti-grid .masti-deal"
+  );
+  const pattern = ["fadeInRight", "fadeInUp", "fadeInLeft"]; // different mix
+  mastiDeals.forEach((card, index) => {
+    const desired = pattern[index % pattern.length];
+    card.dataset.animation = desired;
+  });
+}
+
+function initHeroRotator() {
+  const hero = document.querySelector(".hero");
+  if (!hero) return;
+  const items = [
+    hero.querySelector(".tagline"),
+    hero.querySelector(".hours"),
+    hero.querySelector(".delivery"),
+  ].filter(Boolean);
+  if (items.length < 2) return;
+
+  // Mark elements and start with first visible
+  items.forEach((el) => el.classList.add("rotating"));
+  let index = 0;
+  items[index].classList.add("show");
+
+  setInterval(() => {
+    items[index].classList.remove("show");
+    index = (index + 1) % items.length;
+    items[index].classList.add("show");
+  }, 3000);
+}
+
+// Initialize on DOM ready
+document.addEventListener("DOMContentLoaded", () => {
+  initHeroRotator();
+});
