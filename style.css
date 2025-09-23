@@ -666,11 +666,11 @@ body {
   background: var(--color-primary);
   padding: 0.3rem 0.8rem;
   border-radius: 15px;
-  font-size: 0.57rem;
+  font-size: 0.6rem;
   color: #ffffff;
   border: 1px solid #dee2e6;
   border-radius: 999px;
-  padding: 0.35rem 0.7rem;
+  padding: 0.35rem 0.4rem;
   display: inline-block;
 }
 
