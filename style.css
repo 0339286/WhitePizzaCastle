@@ -1077,27 +1077,28 @@ body {
     text-align: center;
   }
 
-  /* Grid-areas layout for all cards at <=768px */
+  /* Compact grid layout for all cards at <=768px */
   .deal-card,
   .menu-item,
   .midnight-deal,
   .masti-deal {
     display: grid;
-    grid-template-columns: 110px 1fr;
+    grid-template-columns: 90px 1fr;
     grid-template-rows: auto auto auto;
     grid-template-areas: "img title" "img desc" "img price";
-    align-items: start;
-    align-content: start;
-    column-gap: 12px;
-    row-gap: 6px;
+    align-items: center;
+    align-content: center;
+    column-gap: 10px;
+    row-gap: 4px;
     text-align: left;
+    padding: 12px;
   }
   .deal-card .deal-image,
   .midnight-deal .deal-image,
   .masti-deal .deal-image,
   .menu-item .menu-image {
     grid-area: img;
-    width: 110px;
+    width: 90px;
     height: 90px;
     margin: 0;
     border-radius: 8px;
@@ -1112,6 +1113,7 @@ body {
   .menu-item h4 {
     grid-area: title;
     margin: 0 0 2px;
+    font-size: 1rem;
   }
   .deal-card p,
   .midnight-deal p,
@@ -1120,6 +1122,7 @@ body {
   .menu-item .sizes {
     grid-area: desc;
     margin: 0 0 4px;
+    font-size: 0.85rem;
   }
   .price,
   .menu-item .price,
@@ -1128,6 +1131,8 @@ body {
     grid-area: price;
     justify-self: start;
     margin: 2px 0 0 0;
+    font-size: 0.9rem;
+    white-space: nowrap;
   }
 
   /* Two-per-row price pills for menu item sizes on mobile */
@@ -1200,42 +1205,44 @@ body {
     padding: 1rem;
   }
 
-  /* make deal image slightly shorter to reduce white space */
+  /* make deal image smaller and centered */
   .deal-image {
     height: 90px;
     margin-bottom: 0;
+    width: 90px;
   }
 
-  /* Single-row card layout, top-aligned with tight vertical spacing */
+  /* Compact single-row card layout with centered image */
   .deal-card,
   .menu-item,
   .midnight-deal,
   .masti-deal {
     display: grid;
-    grid-template-columns: 110px 1fr;
+    grid-template-columns: 90px 1fr;
     grid-template-rows: auto auto auto;
     grid-template-areas:
       "img title"
       "img desc"
       "img price";
-    align-items: start;
-    align-content: start;
-    column-gap: 12px;
-    row-gap: 4px;
+    align-items: center;
+    align-content: center;
+    column-gap: 10px;
+    row-gap: 3px;
     text-align: left;
-    padding: 12px;
+    padding: 10px;
     border-left: 4px solid #ff4444;
+    max-width: 100%;
   }
 
-  /* map elements to grid areas */
+  /* map elements to grid areas with centered images */
   .deal-card .deal-image,
   .midnight-deal .deal-image,
   .masti-deal .deal-image,
   .menu-item .menu-image {
     grid-area: img;
-    width: 110px;
-    height: 110px;
-    margin-top: 1rem;
+    width: 90px;
+    height: 90px;
+    margin: 0;
     border-radius: 8px;
     overflow: hidden;
     display: flex;
@@ -1263,13 +1270,16 @@ body {
   .price,
   .menu-item .price {
     grid-area: price;
-    margin: 2px 0 15px 0;
+    margin: 2px 0 0 0;
     justify-self: start;
     background: var(--color-primary);
     color: #fff;
     border-radius: 999px;
-    padding: 0.25rem 1rem;
+    padding: 0.25rem 0.8rem;
     display: inline-block;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    max-width: fit-content;
   }
 }
 
