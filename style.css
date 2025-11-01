@@ -717,6 +717,181 @@ body {
   font-weight: 700;
 }
 
+/* Masti Deal Specific Color Schemes - Matching Promotional Images */
+
+/* Medium Masti Deal - Dark Brown/Black background with golden yellow accents */
+.masti-deal-1 {
+  background: linear-gradient(135deg, #2c1810 0%, #1a1a1a 100%) !important;
+  border-left: 4px solid #ffd700;
+  color: #ffffff;
+}
+
+.masti-deal-1 h4 {
+  color: #ffd700;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.masti-deal-1 p {
+  color: #fff8dc !important;
+}
+
+.masti-deal-1 .price {
+  background: #ffd700 !important;
+  color: #000000;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+/* Double Masti Large Deal - Dark/Black background with vibrant yellow accents */
+.masti-deal-2 {
+  background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%) !important;
+  border-left: 4px solid #ffdd44;
+  color: #ffffff;
+}
+
+.masti-deal-2 h4 {
+  color: #ffdd44;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.masti-deal-2 p {
+  color: #fff8dc !important;
+}
+
+.masti-deal-2 .price {
+  background: #ffdd44 !important;
+  color: #000000;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(255, 221, 68, 0.4);
+}
+
+/* Royal Deal 1 - Vibrant magenta/purple/pink gradient */
+.masti-deal-3 {
+  background: linear-gradient(
+    135deg,
+    #cc0066 0%,
+    #ff0080 50%,
+    #ff66cc 100%
+  ) !important;
+  border-left: 4px solid #ffd700;
+  color: #ffffff;
+}
+
+.masti-deal-3 h4 {
+  color: #ffdd44 !important;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.masti-deal-3 p {
+  color: #fff8dc !important;
+}
+
+.masti-deal-3 .price {
+  background: #ffd700 !important;
+  color: #000000;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+/* Royal Deal 2 - Dark red/maroon background */
+.masti-deal-4 {
+  background: linear-gradient(135deg, #8b0000 0%, #660000 100%) !important;
+  border-left: 4px solid #ffa500;
+  color: #ffffff;
+}
+
+.masti-deal-4 h4 {
+  color: #ffdd44 !important;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.masti-deal-4 p {
+  color: #fff8dc !important;
+}
+
+.masti-deal-4 .price {
+  background: #ffa500 !important;
+  color: #000000;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+}
+
+/* Royal Deal 3 - Same as Royal Deal 2 (uses RoyalDeal2.jpeg) */
+.masti-deal-5 {
+  background: linear-gradient(135deg, #8b0000 0%, #660000 100%) !important;
+  border-left: 4px solid #ffa500;
+  color: #ffffff;
+}
+
+.masti-deal-5 h4 {
+  color: #ffdd44 !important;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.masti-deal-5 p {
+  color: #fff8dc !important;
+}
+
+.masti-deal-5 .price {
+  background: #ffa500 !important;
+  color: #000000;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+}
+
+/* Royal Deal 4 - Same as Royal Deal 5 (uses RoyalDeal5.jpeg) - Dark desaturated blue-grey */
+.masti-deal-6 {
+  background: linear-gradient(135deg, #3a4a5a 0%, #2c3e50 100%) !important;
+  border-left: 4px solid #fff8dc;
+  color: #ffffff;
+}
+
+.masti-deal-6 h4 {
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.masti-deal-6 p {
+  color: #fff8dc !important;
+}
+
+.masti-deal-6 .price {
+  background: #fff8dc !important;
+  color: #000000;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(255, 248, 220, 0.4);
+}
+
+/* Royal Deal 5 - Dark desaturated blue-grey */
+.masti-deal-7 {
+  background: linear-gradient(135deg, #3a4a5a 0%, #2c3e50 100%) !important;
+  border-left: 4px solid #fff8dc;
+  color: #ffffff;
+}
+
+.masti-deal-7 h4 {
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.masti-deal-7 p {
+  color: #fff8dc !important;
+}
+
+.masti-deal-7 .price {
+  background: #fff8dc !important;
+  color: #000000;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(255, 248, 220, 0.4);
+}
+
 /* Masti Deals */
 .masti-deals {
   margin: 4rem 0;
@@ -1541,6 +1716,33 @@ body {
     border-left: 4px solid #008000;
   }
 
+  .masti-deal-1 {
+    border-left: 4px solid #ffd700;
+  }
+
+  .masti-deal-2 {
+    border-left: 4px solid #ffdd44;
+  }
+
+  .masti-deal-3 {
+    border-left: 4px solid #ffd700;
+  }
+
+  .masti-deal-4 {
+    border-left: 4px solid #ffa500;
+  }
+
+  .masti-deal-5 {
+    border-left: 4px solid #ffa500;
+  }
+
+  .masti-deal-6 {
+    border-left: 4px solid #fff8dc;
+  }
+
+  .masti-deal-7 {
+    border-left: 4px solid #fff8dc;
+  }
   /* map elements to grid areas with centered images */
   .deal-card .deal-image,
   .midnight-deal .deal-image,
